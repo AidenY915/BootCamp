@@ -15,8 +15,8 @@ class PhoneInfo  {				//전화번호
 	} 
 }
 
-class PhoneManager {		//전화번호부
-	private final static int ADD = 1, SEARCH = 2, DELETE = 3, PRINT_ALL = 4, QUIT = 5;	//가독성을 위한 커맨드 상수화
+class PhoneBook {		//전화번호부
+	private final static int ADD = 1, SEARCH = 2, DELETE = 3, PRINT_ALL = 4, QUIT = 5;
 	private PhoneInfo[] PhoneInfoArray = new PhoneInfo[100];
 	private int count = 0;
 	private int returnSearchedIndex(String name){			//검색
@@ -52,6 +52,7 @@ class PhoneManager {		//전화번호부
 		}
 		for(int i = searchedIndex; i < count - 1; i++)
 			PhoneInfoArray[i] = PhoneInfoArray[i + 1];
+		PhoneInfoArray[count-1] = null; // 가비지 컬렉션을 위함.
 		count--;
 		System.out.println("데이터 삭제가 완료되었습니다.\n");
 	}
@@ -60,7 +61,7 @@ class PhoneManager {		//전화번호부
 			PhoneInfoArray[i].printInfo();
 	}
 
-	public static void programStart(PhoneManager pm){		//전화번호부 관리 실행
+	public static void programStart(PhoneBook pb){		//전화번호부 관리 실행
 		Scanner sc = new Scanner(System.in);
 		String name = null, number = null, birth = null ;
 		boolean run = true;
@@ -74,30 +75,31 @@ class PhoneManager {		//전화번호부
 					System.out.print("데이터 입력을 시작합니다.\n이름 : "); name = sc.nextLine();
 					System.out.print("전화번호 : "); number = sc.nextLine();
 					System.out.print("생년월일 : "); birth = sc.nextLine();
-					pm.add(name, number, birth);
+					pb.add(name, number, birth);
 					break;
 				case SEARCH : 
 					System.out.print("데이터 검색을 시작합니다.\n이름 : "); name = sc.nextLine();
-					pm.search(name);
+					pb.search(name);
 					break;
 				case DELETE : 
 					System.out.print("데이터 삭제를 시작합니다.\n이름 : "); name = sc.nextLine();
-					pm.delete(name);
+					pb.delete(name);
 					break;
 				case PRINT_ALL :
-					pm.printAll();
+					pb.printAll();
 					break; 
 				case QUIT :
 					run = false;
 					break;
 			}
 		}
+		sc.close();
 	}
 	
 }
 
-public class PhoneBook {
+public class PhoneBookMain {
 	public static void main(String[] args) {
-		PhoneManager.programStart(new PhoneManager());
+		PhoneBook.programStart(new PhoneBook());
 	}
 }

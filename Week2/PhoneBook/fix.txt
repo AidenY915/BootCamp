@@ -1,0 +1,5 @@
+MVC 구조 참고해서 수정필요
+	UI 클래스
+	Control 클래스 (phoneBook)
+
+class 별 코드 분리
