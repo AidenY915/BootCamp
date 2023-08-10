@@ -1,0 +1,4 @@
+method1() in Child
+method2() in Parent
+staticMethod() in MyInterface
+staticMethod() in MyInterface2
