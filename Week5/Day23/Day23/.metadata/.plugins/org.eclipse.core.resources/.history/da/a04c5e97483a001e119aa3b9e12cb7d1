@@ -1,0 +1,21 @@
+package Practice;
+
+import java.util.Scanner;
+
+class TmpScanner extends Scanner {
+	
+	
+}
+
+public class TryResource {
+
+	public static void main(String[] args) {
+		try(Scanner sc = new Scanner(System.in)){
+			System.err.println(10/0);
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+}

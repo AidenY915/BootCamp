@@ -1,0 +1,18 @@
+package practice;
+
+public class ReThrowsing {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			throw new RuntimeException("1차 던짐");
+		}catch (RuntimeException e) {
+			// TODO: handle exception
+			throw new Exception("다시 던짐");
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+}

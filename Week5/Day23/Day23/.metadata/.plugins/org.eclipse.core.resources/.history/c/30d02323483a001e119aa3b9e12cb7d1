@@ -1,0 +1,16 @@
+package Practice;
+
+import java.util.Scanner;
+
+public class TryResource {
+
+	public static void main(String[] args) {
+		try(Scanner sc = new Scanner(System.in)){
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+
+	}
+
+}

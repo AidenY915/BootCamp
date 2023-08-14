@@ -1,0 +1,33 @@
+package practice;
+
+import java.io.Closeable;
+import java.io.IOException;
+
+class TmpCloseable implements Closeable  {
+
+	@Override
+	public void close() throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("close");
+		throw new IOException("TmpCloseable close() Error Message");
+	}
+}
+
+public class TryResource {
+
+	public static void main(String[] args) {
+		try(TmpCloseable sc = new TmpCloseable()){
+			System.out.println(10/0);
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(e.getSuppressed()[0].getMessage());
+		}
+		var a = new Closeable() {
+			int n;
+			@Override
+			public void close() throws IOException {}
+			
+		}
+		System.out.println();
+	}
+}

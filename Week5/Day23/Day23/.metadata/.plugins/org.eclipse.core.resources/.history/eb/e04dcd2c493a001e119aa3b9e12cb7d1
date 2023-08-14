@@ -1,0 +1,28 @@
+package practice;
+
+import java.io.Closeable;
+import java.io.IOException;
+
+class TmpScanner implements Closeable  {
+
+	@Override
+	public void close() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}
+
+public class TryResource {
+
+	public static void main(String[] args) {
+		try(Scanner sc = new Scanner(System.in)){
+			System.err.println(10/0);
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+}

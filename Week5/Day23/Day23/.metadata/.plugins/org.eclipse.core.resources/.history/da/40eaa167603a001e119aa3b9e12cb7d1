@@ -1,0 +1,14 @@
+package Chapter8;
+
+class UnsupportedFuctionException extends RuntimeException {
+	
+	
+}
+
+class Q8_9
+{
+	public static void main(String[] args) throws Exception
+	{
+		throw new UnsupportedFuctionException(" .",100); 지원하지 않는 기능입니다
+	}
+}

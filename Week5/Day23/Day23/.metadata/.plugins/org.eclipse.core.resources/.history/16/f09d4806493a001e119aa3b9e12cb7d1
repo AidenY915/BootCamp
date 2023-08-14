@@ -1,0 +1,23 @@
+package practice;
+
+import java.util.Scanner;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
+
+class TmpScanner implements Closeable  {
+	
+	
+}
+
+public class TryResource {
+
+	public static void main(String[] args) {
+		try(Scanner sc = new Scanner(System.in)){
+			System.err.println(10/0);
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+}
