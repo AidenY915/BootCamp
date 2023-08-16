@@ -1,10 +1,11 @@
+package Done;
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
-import java.awt.Point;
 
-class Main{
+class B2178{
 	public static void mazeRun(byte[][] map, int distance[][]) {		//비재귀형 DFS 만들어보기		//pop한 것만 조회해야함. 들어가면서 보면 안되고.
 		Stack<Point> stack = new Stack<Point>();
 		stack.add(new Point(0, 0));
