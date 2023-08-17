@@ -1,0 +1,79 @@
+문제3.
+기본자료형에 8가지에 대한 래퍼 클래스를 서술하시오.
+Byte Short Integer Long Float Double Char Boolean
+Char Boolean 빼고는 java.util.Number를 상속함.
+따라서 ~~Value()메소드들을 구현하고, 이를 이용해 쉽게 형변환할 수 있음.
+물론 자동 boxing unboxing + 기본자료형의 자동 형변환 때문에 형변환을 명시적으로 하지 않아도 되는 경우가 더러 있다.
+--------------------------------------------------------------------------------------------
+
+문제4.
+다음의 실행 결과를 적으시오.
+
+import java.util.regex.*;	// Pattern과 Matcher가 속한 패키지
+
+class RegularEx1 {
+	public static void main(String[] args) 
+	{
+		String[] data = {"bat", "baby", "bonus",
+				    "cA","ca", "co", "c.", "c0", "car","combat","count",
+				    "date", "disc"};		
+		Pattern p = Pattern.compile("c[a-z]*");	
+
+		for(int i=0; i < data.length; i++) {
+			Matcher m = p.matcher(data[i]);
+			if(m.matches())
+				System.out.print(data[i] + ",");
+		}
+	}
+}
+ca,co,car,combat,count,
+
+
+--------------------------------------------------------------------------------------------
+
+
+문제5.
+다음의 실행결과를 적으시오.
+
+import java.util.regex.*;	// Pattern과 Matcher가 속한 패키지
+
+class RegularEx2 {
+	public static void main(String[] args) {
+		String[] data = {"bat", "baby", "bonus", "c", "cA",
+				        "ca", "co", "c.", "c0", "c#",
+					"car","combat","count", "date", "disc"
+						};		
+		String[] pattern = {".*","c[a-z]*","c[a-z]", "c[a-zA-Z]",
+                                          "c[a-zA-Z0-9]","c.","c.*","c\\.","c\\w",
+                                          "c\\d","c.*t", "[b|c].*", ".*a.*", ".*a.+",
+                                          "[b|c].{2}"
+                                         };
+
+		for(int x=0; x < pattern.length; x++) {
+			Pattern p = Pattern.compile(pattern[x]);
+			System.out.print("Pattern : " + pattern[x] + "  결과: ");
+			for(int i=0; i < data.length; i++) {
+				Matcher m = p.matcher(data[i]);
+				if(m.matches())
+					System.out.print(data[i] + ",");
+			}
+			System.out.println();
+		}
+	} // public static void main(String[] args) 
+}
+
+전부다
+c ca co car combat count
+ca co
+cA ca co
+cA ca co c0
+cA ca co c. c0 c# 
+c cA ca co c. c c0 c# car combat count 
+c.
+ cA ca co c. c0
+c0
+combat count
+bat baby bonus c cA ca co c. c0 c# car combat count
+bat baby ca car combat date
+bat baby car combat date
+bat car

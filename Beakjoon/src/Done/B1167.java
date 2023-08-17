@@ -1,4 +1,5 @@
 package Done;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,31 +19,38 @@ class Vertex {
 	}
 	int distance;
 	
-	static public int findLongestFrom(Vertex v) {
+	static public void findLongestFrom(Vertex v) {
 		Iterator<Edge> iterator = v.incidence.iterator();
-		int max = v.distance;
 		while(iterator.hasNext()) {
 			Edge next = iterator.next();
-			if(next.end.distance != -1)
-				continue;
-			next.end.distance = v.distance + next.weight;
-			int tmp = findLongestFrom(next.end);
-			max = max >= tmp ? max : tmp;
+			int tmpNextDistance = v.distance + next.weight;
+			if(next.end.distance == -1 || next.end.distance > tmpNextDistance) {
+				next.end.distance = tmpNextDistance;
+				findLongestFrom(next.end);
+			}
 		}
-		v.distance = -1;
-		return max;
-		
 	}	
+	
 	static public int findDiameter(Vertex[] vArr){
-		int max = 0;
-		for(int i = 1; i < vArr.length - 1; i++) { //마지막 원소는 순회 안함.
-			for(int j = 1; j < vArr.length; j++)
-				vArr[j].distance = -1;
-			vArr[i].distance = 0;
-			int tmp = findLongestFrom(vArr[i]);
-			max = max >= tmp ? max : tmp;
+		int rslt = 0;
+		int startPoint = 1;
+		for(int i = 1; i < vArr.length; i++) {
+			vArr[i].distance = -1;
 		}
-		return max;
+		vArr[startPoint].distance = 0;
+		findLongestFrom(vArr[startPoint]);
+		for(int i = 1; i < vArr.length; i++) {
+			startPoint = vArr[startPoint].distance > vArr[i].distance ? startPoint : i;
+		}
+		for(int i = 1; i < vArr.length; i++) {
+			vArr[i].distance = -1;
+		}
+		vArr[startPoint].distance = 0;
+		findLongestFrom(vArr[startPoint]);
+		for(int i = 1; i < vArr.length; i++) {
+			rslt = rslt > vArr[i].distance ? rslt : vArr[i].distance;
+		}
+		return rslt;
 	}
 }
 
@@ -60,7 +68,7 @@ public Edge(Vertex start, Vertex end, int weight) {
 }
 
 
-public class B1167TimeExceed {
+public class B1167 {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
