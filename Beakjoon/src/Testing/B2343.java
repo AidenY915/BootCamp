@@ -5,38 +5,59 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class B2343 {
-	private static byte checkBuket(int[] partSum, int buketSize, int m) {
-		int prev = 0;
-		int cnt = 0;
-		for(int i = 0 ; i < partSum.length - 1; i++) {
-			if(partSum[i+1]-prev > buketSize) {
-				cnt++;
-				prev = partSum[i];
+
+	private static int checkBucket(int[] timeArr, int m, int BucketSize) {
+		int cnt = 1;
+		int len = timeArr.length;
+		int sum = 0;
+		for(int i = 0; i < len; i++) {
+			sum += timeArr[i];
+			if(sum > BucketSize) {
+				cnt++;					//넘치면 하나 더 준비
+				sum = timeArr[i];
 			}
 		}
+		return m - cnt;
 		
-		if(cnt > m - 1) return -1; //Bucket 작음.
-		if(cnt < m - 1) return 1;	//Bucket 너무 큼
-		return 0;
 	}
 	
-	private static int findLeast(int[] partSum, int m) {
-		int start = partSum[partSum.length - 1] / m;
-		int end = partSum[partSum.length - 1];
+	private static int findLeastBucket(int[] timeArr, int m) {
+		int len = timeArr.length;
+		int max = timeArr[0];
+		int sum = 0;
+		for(int i = 0; i < len; i++) {
+			max = Math.max(max, timeArr[i]);
+			sum += timeArr[i];
+		}
+		int min = Math.max(max, sum / m + (sum%m==0 ? 0 : 1));
+		int start = min;
+		int end = sum;
 		int mid = start;
-		byte checkRslt = 0;
 		while(start <= end) {
 			mid = (start+end)/2;
-			checkRslt = checkBuket(partSum, mid, m);
-			if(checkRslt == 0)  break;
-			else if(checkRslt == 1) end = mid - 1;
-			else if(checkRslt == -1) start = mid + 1;
+			if(checkBucket(timeArr, m, mid) == 0) break;
+			else if(checkBucket(timeArr, m, mid) < 0) start = mid + 1;
+			else end = mid - 1;
+			
+			if(mid < min) {
+				return min;
+			}
+			if(mid > sum) {
+				return sum;
+			}
 		}
-		while(checkRslt == 0) {
-			checkRslt = checkBuket(partSum, --mid, m);
-			if(mid == 0 ) return 1;
+		int rslt = mid;
+		while(rslt >= start) {
+			if(checkBucket(timeArr, m, rslt) < 0) {
+				rslt++;
+				break;
+			}
+			rslt--;
+			if(rslt < min) {
+				return min;
+			}
 		}
-		return mid + 1; 
+		return rslt;
 		
 	}
 
@@ -49,12 +70,8 @@ public class B2343 {
 		input = br.readLine().split(" ");
 		br.close();
 		int[] timeArr = new int[n];
-		int[] partSum = new int[n];
 		for(int i = 0; i < n; i++) 
 			timeArr[i] = Integer.parseInt(input[i]);
-		partSum[0] = timeArr[0];
-		for(int i = 1; i < n; i++) 
-			partSum[i] = partSum[i - 1] + timeArr[i];
-		System.out.println(findLeast(partSum, m));
+		System.out.println(findLeastBucket(timeArr, m));
 	}
 }
