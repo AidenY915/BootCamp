@@ -1,0 +1,80 @@
+h1:hover{
+    color :blueviolet
+}
+h1:active{
+    color :cadetblue
+
+}
+h2
+ {
+    color : red
+}
+p {
+    color : blue
+}
+#rint {
+    color : green
+}
+.red {
+    color :red;
+}
+.bgBlue {
+    background-color: blue;
+}
+
+input[type = "text"] {
+    background-color: red;
+}
+input[type = "password"] {
+    background-color: blue;
+}
+
+#header>h1{
+    background-color: red;
+}
+#section h1{
+    background-color: blue;
+}
+
+table > tbody > tr > th {
+    color: red;
+}
+
+input:enabled {
+    background-color: white;
+}
+input:disabled{
+    background-color: gray
+}
+input:focus{
+    background-color: orange;
+}
+
+.horizontalUl{
+    list-style: none;
+    
+}
+.horizontalUl>li{   
+    display: inline;
+    margin : 0;
+    padding : 10px 30px 10px;
+}
+.horizontalUl *:nth-child(2n){
+    background-color: brown;
+}
+.horizontalUl *:nth-child(2n+1){
+    background-color: chartreuse;
+}   
+.horizontalUl *:first-child{
+    color: cornflowerblue;
+    border-radius: 20px 0 0 20px;
+    font-size: large;
+}
+
+.horizontalUl *:last-child{
+    color: cornflowerblue;
+    border-radius: 0 20px 20px 0;
+    font-size: large;
+}
+
+li:first-child > a { color: red; }

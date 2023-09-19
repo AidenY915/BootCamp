@@ -1,0 +1,32 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+}
+
+header{
+    background-color: #ff0000;
+    font-size : 30px;
+    margin : 0 10% 20px 10%
+}
+aside{
+    background-color: #00f;
+    display:inline-block;
+    width : 20%;
+    margin : 0 0 0 10%;
+    padding : 10px 0;
+    font-size : 50px;
+    border-collapse: collapse;
+    float : left;
+    overflow : hidden;
+}
+content{
+    background-color: #0a0;
+    display:inline-block;
+    width : 60%;
+    margin : 0 10% 0 0;
+    padding : 10px 0;
+    font-size : 50px;
+    border-collapse: collapse;
+    float : left;
+    overflow : hidden;
+}
