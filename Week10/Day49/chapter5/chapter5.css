@@ -1,0 +1,23 @@
+h1 {
+    color : red;
+}
+p{
+    color : blue;
+}
+
+#rint{
+    color : #f00;
+}
+.c1{
+    color :aquamarine
+}
+.c2{
+    background-color: aqua;
+}
+
+#header>h1{
+    color :blueviolet;
+}
+#section h1{
+    color :cadetblue;
+}

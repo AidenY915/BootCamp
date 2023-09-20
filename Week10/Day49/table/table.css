@@ -1,0 +1,27 @@
+table{
+    border-collapse: collapse;   
+    width : 70%;
+    font-family :'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+tr:nth-child(2n){
+    background-color: #eee;
+}
+th {
+    background-color: green;
+    border : solid 2px #ddd;
+    padding : 7px;
+    text-align: left;
+    font-size : large;
+    color : #fff;
+}
+th:first-child {
+    width: 50%;
+}
+th:last-child {
+    width: 20%;
+}
+td {
+    border : solid 2px #ddd;
+    padding : 5px;
+}
+
