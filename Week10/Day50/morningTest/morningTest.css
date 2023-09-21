@@ -1,0 +1,22 @@
+#flowerImg{
+    float : left;
+    width : 300px;
+    margin : 0 10px 0 0;
+}
+
+.floatLeftDiv{
+    float: left;
+    background-color: cadetblue;
+    width : 200px;
+    height : 100px;
+}
+
+.floatRightDiv{
+    float: right;
+    background-color: burlywood;
+    width : 200px;
+    height : 100px;
+}
+.clearBoth{
+    clear:both;
+}
