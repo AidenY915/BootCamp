@@ -1,0 +1,40 @@
+body{
+    width: 1200px;
+    margin: auto;
+}
+
+header, footer{
+    background-color: black;
+    color :white;
+    text-align: center;
+}
+header {
+    font-size:40px;
+    padding : 20px 0;
+}
+footer{
+    padding : 10px 0;
+}
+
+#content {
+    height: 300px;
+    overflow :hidden;
+}
+aside{
+    display :inline-block;
+    width: 180px;
+    padding : 10px;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    height : inherit;
+    margin : 0;
+    float: left;
+}
+article {
+    width: 977px;
+    display: inline-block;
+    border-right : 1px solid #333;
+    height : inherit;
+    margin : 0;
+    padding : 10px;
+}

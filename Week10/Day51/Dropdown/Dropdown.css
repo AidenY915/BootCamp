@@ -1,0 +1,45 @@
+.whereToHover{
+    position: relative;
+    cursor :pointer;
+    display : inline-block;
+    height: 70px;
+}
+
+.whereToHover>h2{
+    background-color:yellowgreen;
+    width : 200px;
+    text-align: center;
+}
+.whereToHover:hover>h2{
+    background-color:darkgreen;
+}
+
+
+.whereToHover .hide{
+    display : none;
+    box-shadow : 50px 50px 50px 50px black , 10px 10px 5px rgb(141, 64, 64)  inset;
+    font-size : 24px;
+    width : 200px;
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    top : 55px;
+}
+.whereToHover:hover .hide{
+    display :block;
+
+}
+
+.hide>div:hover{
+    background-color: #eee;
+    cursor :pointer;
+}
+
+.hide>div:hover:nth-child(2n){
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    cursor :pointer;
+}
+
+body{
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}

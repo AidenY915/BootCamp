@@ -1,0 +1,108 @@
+body {margin : 0;
+    background-color: #ccc;
+    background-image : url("BackgroundFront.png"), url("BackgroundBack.png");
+    background-size: 100% 250px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+ul.navBar{
+    list-style: none;
+    background-color: #222;
+    color: white;
+    font-size : 1.5em;
+    overflow: hidden;
+    position : fixed;
+    top : 0;
+    padding : 0;
+    margin : 0;
+    width : 100%;
+}
+ul.navBar>li{
+    float:left;
+    padding : 10px 15px;
+}
+ul.navBar>li:first-child{
+    background-color :darkgreen;
+}
+
+div#rectangle{
+    width : 100px;
+    height : 100px;
+    background-color: red;
+    border : 10px solid black;
+    align-self: center;
+    /* display: none; */
+}
+article#content{
+    margin : 54px 100px 0 100px;
+}
+div:nth-child(2){
+    border : thick dashed black;
+    font-size: large;
+}
+[title *="first"] {
+    background-color: yellow;
+}
+div.title *::after{
+    content: attr(title);
+}
+input[type = "text"] {
+    background-color: bisque;
+}
+input[type = "password"]{
+    background-color: tomato;
+}
+input:focus{
+    background-color: chartreuse;
+}
+img[src $= "jpg"]{
+    border : 10px solid red;
+}
+img[src $= "png"]{
+    border : 10px solid green;
+}
+img[src $= "gif"]{
+    border : 10px solid blue;
+}
+
+h1+h2{
+    color:red;
+}
+h1~h2{
+    background-color: tomato;
+}
+.Q6 *::first-letter{
+    font-size: 3em;
+    color:red
+}
+.Q6 *::after{
+    content : " - " attr(title)
+}
+
+.Q6::first-line{
+    font-size:3.5em;
+}
+
+p::selection{
+    background-color: springgreen;
+    color:yellowgreen;
+}
+
+a{
+    text-decoration: none;
+    display : block;
+    color : white;
+}
+
+a:not(li>*):after{
+    content : attr(href);
+}
+
+a:visited{
+    color :slateblue;
+}
+
+input:not([type = "password"]){
+    color :royalblue;
+}
