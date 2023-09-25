@@ -1,0 +1,13 @@
+.smallImg{
+    width:10%;
+}
+.EnlargedImg{
+    position: absolute;
+    display:none;
+}
+.smallImg:hover+.EnlargedImg{
+    display:block;
+}
+.imgSheet{
+    position: relative;
+}

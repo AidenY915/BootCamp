@@ -1,0 +1,139 @@
+*{
+    box-sizing: border-box;
+}
+
+
+nav>ul{
+    list-style: none;
+    overflow : hidden;
+}
+
+nav>ul>li{
+    float:left;
+    border: 1px solid black;
+    border-right: 0;
+}
+nav>ul>li:last-child{
+    border-right: 1px solid black;
+    border-radius: 0 10px 10px 0;
+}
+nav>ul>li:first-child{
+    border-radius: 10px 0 0 10px;
+}
+
+nav li:hover{
+    background-color: blueviolet;
+    color : white;
+}
+
+.gnb{
+    position: absolute;
+    top:0;
+    right :10px;
+}
+
+.gnb li {
+    padding :2px;
+    font-size: 0.8em;
+}
+
+.lnb li {
+    padding : 5px;
+}
+
+
+header{
+    margin : 0 auto;
+    width:1200px;
+    padding : 30px;
+    clear: both;
+    position: relative;
+
+    
+    font-family: 'Fuggles', cursive;
+    font-family: 'Skranji', cursive;
+}
+.lnb{
+    position: absolute;
+    right : 10px;
+    bottom : 0;
+    
+}
+section{
+    width : 1200px;
+    margin :0 auto;
+    position: relative;
+}
+section>article{
+    border: 1px solid black;
+    width:1000px;
+    margin-right : 5px;
+    float: left;
+    margin:5px 0;
+    padding : 0 10px;
+}
+
+section>aside{
+    width:195px;
+    float:right;
+    border: 1px solid black;
+    align-content: center;
+}
+
+footer{
+    clear :both;
+    border: 1px solid black;
+    width : 1200px;
+    margin : auto;
+    text-align: center;
+}
+
+
+article.hidden{
+    display: none;
+    float : left;
+    width : 100%;
+}
+
+.hidden>ul{
+    list-style: none;
+    margin : 0;
+    padding : 0;
+}
+
+.hidden>ul>li{
+    padding:5px;
+    border : 0.2px solid rgb(231, 231, 231);
+}
+.hidden>ul>li:hover{
+    background-color: rgb(231, 231, 231);
+}
+
+aside{
+    position: absolute;
+    overflow: hidden;
+    top : 5px;
+    right : 0;
+}
+
+input[name = "menuTab"]{
+    display : none;
+}
+input[name = "menuTab"]:checked+label{
+    background-color: black;
+    color:white;
+}
+aside label{
+    width:50%;
+    display: block;
+    float:left;
+    text-align: center;
+    
+}
+
+input[name = "menuTab"]:first-of-type:checked~.hidden:first-of-type{
+   display:block;
+}
+input[name = "menuTab"]:last-of-type:checked~.hidden:last-of-type{
+    display:block;
+ }
