@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+}
+#content{
+    min-width: 800px;
+    max-width: 1200px;
+    margin: auto;
+}
+input[id $= "Name"]{
+    display: block;
+    width:100%;
+}
+select{
+    display: block;
+    width:100%;
+}
+form{
+    padding : 100px;
+    background-color: #eee;
+    border-radius: 10px;
+    width : 80%;
+    margin : auto;
+}
+button{
+    display: block;
+    width:100%;
+    background-color: darkolivegreen;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+}
