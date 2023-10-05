@@ -1,0 +1,14 @@
+1. 자바스크립트 기본자료형에 대해 서술하시오.
+	string, number, null, undefined, symbol, boolean
+2. 자료형의 타입을 알려주는 연산자는?
+	typeof()
+3. 콘솔창에 'Hello'를 출력할려면?
+	console.log('Hello');
+4. 크롬에 내용이 없는 빈 창을 띄울려면?
+	alert();
+5. 크롬에서 개발자 모드를 실행하는 단축키는?
+	F12
+6. false로 인식되는 것에 대한 예시를 드시오.
+	0 null undefined "" false NaN
+7. true로 인식되는 것에 대한 예시를 드시오.
+	나머지 모든 것 0이 아닌 것
