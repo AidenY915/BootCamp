@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="onclickButton()">click me</button>
+
+    <p>과일 종류</p>
+
+    <div id="summer">
+        <p>수박</p>
+        <p>사과</p>
+    </div>
+
+    <div id="winter">
+        <p>바나나</p>
+        <p>딸기</p>
+    </div>
+
+    <button onclick = "printContent('winter')">요소 취득</button>
+
+    <input type="text" onchange="alert('changed')"
+    onkeydown="alert('ket down!')">
+    <button onclick = "night()">night</button>
+    <button onmouseover = "alert('경고')">caution</button>
+    <br><br><br><br>
+    <form id = 'getRandomForm'>
+        <input type="text">
+        <input type="text">
+        <button onclick="getRandom('getRandomForm',this)">getRandom</button>
+    </form>
+
+    
+    <script src = "Q4Q5.js"></script>
+</body>
+</html>

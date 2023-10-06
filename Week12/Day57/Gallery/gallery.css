@@ -1,0 +1,18 @@
+#buttons{
+    text-align: center;
+}
+button{
+    width : 80px;
+    height: 40px;
+}
+
+#imgContainer{
+    width :1000px;
+    height: 800px;
+    text-align: center;
+    vertical-align:middle;
+}
+
+#imgContainer::after{
+    display:inline-block; height:100%; content:""; vertical-align:middle;
+}
