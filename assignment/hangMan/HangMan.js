@@ -1,5 +1,6 @@
 const buttonSet = document.querySelector("#alphabetButtonSet");
 const answerDiv = document.querySelector("#answerDiv");
+const curtain = document.getElementById("curtain");
 
 let answer;
 let playerAnswer;
@@ -21,6 +22,7 @@ const checkAlphabet = (alphabetButton) => {
     alphabetButton.style.backgroundColor = "green";
     if (!playerAnswer.includes("_")) {
       isGameOver = true;
+      curtain.style.display = "block";
       setTimeout(() => {
         afterGameEnd(1);
       }, 100);
@@ -31,6 +33,7 @@ const checkAlphabet = (alphabetButton) => {
     paintHangMan();
     if (wrongCnt == 0) {
       isGameOver = true;
+      curtain.style.display = "block";
       setTimeout(() => {
         afterGameEnd(-1);
       }, 100);
@@ -78,6 +81,7 @@ const afterGameEnd = (n) => {
       break;
   }
   if (confirm("게임을 다시 시작하겠습니까?")) initGame();
+  curtain.style.display = "none";
 };
 
 initGame();

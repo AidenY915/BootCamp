@@ -38,3 +38,14 @@ button {
 #imgContainer > img {
   height: 500px;
 }
+
+#curtain {
+  position: fixed;
+  display: none;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+}
