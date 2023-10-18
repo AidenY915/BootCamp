@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img id="boyGirlImg" src="girl.png" />
+    <script>
+      const boyGirlImg = document.querySelector("#boyGirlImg");
+      boyGirlImg.addEventListener("mouseover", (event) => {
+        event.target.src = "boy.png";
+      });
+      boyGirlImg.addEventListener("mouseout", (event) => {
+        event.target.src = "girl.png";
+      });
+      document.querySelector("html").addEventListener("click", () => {
+        alert("안녕하세요?");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="dummyImg1.jpg" />
+    <img src="dummyImg2.jpg" />
+    <script>
+      const imgs = document.getElementsByTagName("img");
+      Array.from(imgs).forEach((e) => {
+        console.log(e);
+        e.addEventListener("contextmenu", (event) => {
+          event.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>

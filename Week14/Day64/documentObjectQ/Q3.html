@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #clock {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" name="timerCheck" /><label for="timerCheck"
+      >타이머 활성화</label
+    >
+    <div id="clock"></div>
+    <script>
+      const clock = document.querySelector("#clock");
+      const checkBox = document.querySelector("input[name = 'timerCheck']");
+      let secs = 0;
+      let intervalId;
+      checkBox.addEventListener("change", function () {
+        if (this.checked) {
+          clock.style.color = "black";
+          intervalId = setInterval(() => {
+            secs++;
+            clock.innerText = secs + "초";
+          }, 1000);
+        } else {
+          clearInterval(intervalId);
+          clock.style.color = "#aaa";
+        }
+      });
+    </script>
+  </body>
+</html>

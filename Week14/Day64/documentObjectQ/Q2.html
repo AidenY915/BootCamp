@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" />cm =
+    <span id="result"></span>
+    <select id="unit">
+      <option>m</option>
+      <option>inch</option>
+      <option>mm</option>
+    </select>
+
+    <script>
+      const input = document.querySelector("input");
+      const unitSelect = document.querySelector("#unit");
+
+      unitSelect.addEventListener("change", function () {
+        const resultSpan = document.querySelector("#result");
+        let result = input.value;
+        switch (this.selectedOptions[0].innerText) {
+          case "m":
+            result *= 0.1;
+            break;
+          case "inch":
+            result *= 0.394;
+            break;
+          case "mm":
+            result *= 10;
+            break;
+        }
+        resultSpan.innerText = Number(result).toFixed(2);
+      });
+    </script>
+  </body>
+</html>

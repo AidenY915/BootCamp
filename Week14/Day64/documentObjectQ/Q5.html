@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        text-decoration: none;
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" name="linkCheck" /><label for="linkCheck"
+      >링크 활성화</label
+    >
+    <a href="https://www.naver.com">네이버</a>
+    <script>
+      const link = document.querySelector("a");
+      const checkBox = document.querySelector("input[name = 'linkCheck']");
+      checkBox.addEventListener("change", function () {
+        link.addEventListener("click", (event) => {
+          if (!checkBox.checked) {
+            event.preventDefault();
+          } else {
+          }
+        });
+        if (!checkBox.checked) link.style.color = "#aaa";
+        else link.style.color = "blue";
+      });
+    </script>
+  </body>
+</html>

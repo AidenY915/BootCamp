@@ -1,0 +1,46 @@
+window는 브라우저 탭의 전역 객체 - HTML의 요소가 아님. 따라서 관련 속성도 존재하지 않아, 접근할 수 없다.
+		브라우저 창이 열릴 때마다 하나씩 만들어짐
+		최상위 객체로 체이닝을 통해 모든 속성이나 객체에 접근 가능하다.
+
+document는 브라우저 탭 안의 HTML의 객체로 window의 속성 중 하나이다.(window.document와 같다)
+		body태그를 만나면 생성됨
+
+history는 window의 속성 중 하나로, 브라우저의 히스토리 정보를 저장하는 객체이다.
+
+location은 현재 브라우저에 표시된 문서의 주소를 얻거나, 새 문서를 불러올 수 있는 객체이다.
+		document와 window의 속성으로 연결되어 있다.
+
+navigator 브라우저 스니핑(웹 브라우저의 종류를 미리 파악)을 위한 객체 - 브라우저 간의 호환성을 위함.
+	-현재 브라우저의 정보와 브라우저가 실행되고 있는 운영체제의 정보를 가져올 수 있다.	navigator.userAgent로 사용자의 브라우저를 구분 가능
+
+screen은 사용자의 디스플레이에 대한 정보를 저장하는 객체
+	디스플레이의 높이나 너비 실사용가능한 너비나 높이 등을 가져올 수 있다.
+
+
+
+
+location.href = 새 주소
+window.open(새 주소, '_self');
+location.assign(새 주소)
+
+location.replace(새 주소) -> 현재 주소를 히스토리의 현재 위치에 덮어쓰기
+
+window.open("pop.html", "_blank","width=420,height=500,left=200,top=200"); -  새창에 사이즈와 위치
+window.resizeTo(너비, 높이);
+	resizeBy(너비 증분, 높이 증분)
+window.moveTo()
+	moveBy()
+		-창의 크기나 위치를 변경하는 함수는 원본 창에서는 불가하고 콘솔을 통해 만든 새창에서만 가능
+window.close();
+
+history() - 숫자 넣으면 현재 페이지 기준 이동
+		문자열 넣으면 ? 
+			history.pushState({page: 2}, "페이지 2", "page2.html"); 이렇게 저장해 놓은 페이지로 이동
+			history.go("페이지 1");
+
+location.port - 현재 페이지의 포트번호
+location.search - url의 쿼리문 가져옴.
+location.reload() - 새로고침
+location.toString()
+
+새로고침해도 Screen 객체의 속성값은 바뀌지 않음.

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #star {
+        display: inline-block;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        color: white;
+        font-size: 30px;
+      }
+      html {
+        background-color: #111;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="star">★</div>
+    <script>
+      const star = document.querySelector("#star");
+      document.querySelector("html").addEventListener("keydown", (event) => {
+        const left = Number(
+          star.style.left.slice(0, star.style.left.indexOf("px"))
+        );
+        const top = Number(
+          star.style.top.slice(0, star.style.top.indexOf("px"))
+        );
+        if (event.keyCode == 37) star.style.left = left - 10 + "px";
+        if (event.keyCode == 38) star.style.top = top - 10 + "px";
+        if (event.keyCode == 39) star.style.left = left + 10 + "px";
+        if (event.keyCode == 40) star.style.top = top + 10 + "px";
+        console.log(event.keyCode);
+        console.log(left, top);
+      });
+    </script>
+  </body>
+</html>

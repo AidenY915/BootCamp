@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="email" />
+    <div id="message"></div>
+
+    <script>
+      const emailInput = document.querySelector('input[type="email"]');
+      emailInput.addEventListener("keyup", (event) => {
+        const email = emailInput.value;
+        const message = document.querySelector("#message");
+        const posOfAt = email.indexOf("@");
+        if (posOfAt != -1 && email.slice(posOfAt).includes(".")) {
+          message.innerText = "이메일 맞음: " + email;
+          message.style.color = "green";
+        } else {
+          message.innerText = "이메일 아님: " + email;
+          message.style.color = "red";
+        }
+      });
+
+      const nums = [];
+      const letters = [];
+      for (let i = 0; i < 10; i++) nums.push(i);
+      for (let i = 97; i <= 122; i++) letters.push(String.fromCharCode(i));
+      console.log(nums);
+      console.log(letters);
+    </script>
+  </body>
+</html>

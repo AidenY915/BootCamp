@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select id="foodSelect" multiple>
+      <option value="떡볶이">떡볶이</option>
+      <option>순대</option>
+      <option>오뎅</option>
+      <option>튀김</option>
+    </select>
+    <p></p>
+    <script>
+      const foodSelect = document.querySelector("#foodSelect");
+      foodSelect.addEventListener("change", () => {
+        const p = document.querySelector("#foodSelect+p");
+        p.innerText =
+          "선택: " +
+          Array.from(foodSelect.selectedOptions).map((v) => v.innerText);
+        console.log(
+          Array.from(foodSelect.selectedOptions).map((v) => v.innerText)
+        );
+      });
+    </script>
+  </body>
+</html>
