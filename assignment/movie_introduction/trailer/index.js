@@ -1,21 +1,16 @@
 let intervalId;
 let timeoutId;
-let enter;
+
 function moveToTarget(movingTag, destinationTag) {
-  enter = true;
   const destinationRect = destinationTag.getBoundingClientRect();
   const destinationTagTop =
     destinationRect.top + destinationRect.height / 2 + window.scrollY;
   const destinationTagLeft =
     destinationRect.left + destinationRect.width / 3 + window.scrollX;
 
-  console.log(destinationTag);
-
   const movingRect = movingTag.getBoundingClientRect();
   let movingTagTop = movingRect.top + window.scrollY;
   let movingTagLeft = movingRect.left + window.scrollX;
-  console.log(movingTagTop);
-  console.log(destinationTagTop);
 
   const topV = (destinationTagTop - movingTagTop) / 100;
   const leftV = (destinationTagLeft - movingTagLeft) / 100;
@@ -29,21 +24,27 @@ function moveToTarget(movingTag, destinationTag) {
   if (timeoutId !== undefined) clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
     clearInterval(intervalId);
-    if (enter) location.assign(destinationTag.href);
   }, 1000);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  Array.from(document.getElementsByClassName("planet")).forEach((element) => {
-    const rocket = document.querySelector("#rocket");
-    element.addEventListener("click", (event) => {
-      event.preventDefault();
-    });
-    element.addEventListener("mouseover", (event) => {
+function dispalyDetail(planetLink) {
+  const siblings = Array.from(planetLink.parentElement.childNodes);
+  siblings[siblings.indexOf(planetLink) + 2].style.display = 'block';
+}
+function hideDetail(planetLink) {
+  const siblings = Array.from(planetLink.parentElement.childNodes);
+  siblings[siblings.indexOf(planetLink) + 2].style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  Array.from(document.getElementsByClassName('planet')).forEach((element) => {
+    const rocket = document.querySelector('#rocket');
+    element.addEventListener('mouseover', (event) => {
       moveToTarget(rocket, event.currentTarget);
+      dispalyDetail(event.currentTarget);
     });
-    element.addEventListener("mouseout", (event) => {
-      enter = false;
+    element.addEventListener('mouseout', (event) => {
+      hideDetail(event.currentTarget);
     });
   });
 });
