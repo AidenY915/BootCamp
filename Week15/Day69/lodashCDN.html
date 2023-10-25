@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  </head>
+  <body>
+    <script>
+      // 데이터를 생성합니다.
+      const books = [
+        {
+          name: "혼자 공부하는 파이썬",
+          price: 18000,
+          publisher: "한빛미디어",
+        },
+        {
+          name: "HTML5 웹 프로그래밍 입문",
+          price: 26000,
+          publisher: "한빛아카데미",
+        },
+        {
+          name: "머신러닝 딥러닝 실전 개발 입문",
+          prie: 30000,
+          publisher: "위키북스",
+        },
+        {
+          name: "딥러닝을 위한 수학",
+          price: 25000,
+          publisher: "위키북스",
+        },
+      ];
+
+      console.log(_.sortBy(books, ["price"]));
+      console.log(_.orderBy(books, ["price"], ["desc"]));
+      console.log(books);
+
+      try {
+        willExcept.byeBye();
+        console.log("try 구문의 마지막 줄");
+      } catch (exception) {
+        console.log("catch 구문의 마지막 줄");
+      } finally {
+        console.log("finally 구문의 마지막 줄");
+      }
+    </script>
+  </body>
+</html>
