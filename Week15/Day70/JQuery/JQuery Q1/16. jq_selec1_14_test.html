@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>선택자</title>
+    <script src="js/jquery.js"></script>
+    <script>
+      $(function () {
+        $(".txt1").parents().css("border", "2px dashed #00f");
+        $(".txt2").parents("div").css("border", "2px dashed #f00");
+      });
+    </script>
+  </head>
+  <body>
+    <h1 class="title">선택자</h1>
+    <section>
+      <div>
+        <p class="txt1">내용</p>
+      </div>
+    </section>
+    <section id="3">
+      <div>
+        <p class="txt2">내용</p>
+      </div>
+    </section>
+  </body>
+</html>
+
+<!-- 
+16. 클래스가 txt1인 요소의 전체 상위 요소를 선택 하여 border를 2px dashed #00f로 하자.
+클래스가 txt2인 요소의 상위 요소인 div를 선택 하여 border를 2px solid #f00으로 하자. 
+-->
