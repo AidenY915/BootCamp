@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>이벤트</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        $("#wrap").append('<p><button class="btn_2">버튼2</button></p>');
+        $(".btn_1").addClass("on");
+        $(".btn_2").addClass("on");
+        $(".btn_1.on, .btn_2.on").on("mouseover", function (event) {
+          if ($(this).hasClass("btn_1")) alert("Hello!");
+          else if ($(this).hasClass("btn_2")) alert("WELCOME!");
+        });
+        $(".del_1, .del_2").on("mouseover", function (event) {
+          if ($(this).hasClass("del_1")) $(".btn_1").off("mouseover");
+          else if ($(this).hasClass("del_2")) $(".btn_2").off("mouseover");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <p><button class="btn_1">버튼1</button></p>
+    </div>
+    <p>
+      <button class="del_1">버튼1 이벤트 해지</button>
+      <button class="del_2">버튼2 이벤트 해지</button>
+    </p>
+  </body>
+</html>
+
+<!-- 
+8. 클래스가 btn_1인 것에 마우스를 올리면 경고창에 "HELLO!"이라고 경고창을 띄우자.
+클래스가 btn_2인 것에 마우스를 올리면 경고창에 "WELCOME!"이라고 경고창을 띄우자.
+아이디가 wrap인 것에 "<p><button class=\"btn_2\">버튼2</button></p>"을 추가하자.
+클래스가 del_1인 것을 클릭하면 클래스가 btn_1인 것에 마우스를 올렸을 때의 이벤트를 취소하자.
+클래스가 del_2인 것을 클릭하면 클래스가 btn_2인 것에 마우스를 올렸을 때의 이벤트를 취소하자. 
+-->

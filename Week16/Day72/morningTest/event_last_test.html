@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>이벤트</title>
+    <style>
+      body {
+        font: 14px Malgun Gothic, "맑은고딕", sans-serif;
+      }
+      .zoomBtnZone {
+        font-size: 14px;
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        var baseFontSize = 14;
+        $(".zoomOutBtn, .zoomInBtn, html").on(
+          "click keydown",
+          function (event) {
+            const $originBtn = $(".originBtn");
+            let fontRatio = Number($originBtn.text().split("%")[0]);
+            if ($(this).hasClass("zoomOutBtn") || event.key === "-") {
+              fontRatio -= 10;
+            } else if ($(this).hasClass("zoomInBtn") || event.key === "+") {
+              fontRatio += 10;
+            }
+            const newFontSize =
+              ((baseFontSize * fontRatio) / 100).toFixed(0) + "px";
+            $(".fontSize").text(newFontSize);
+            $("#wrap").css("fontSize", newFontSize);
+            $originBtn.text(fontRatio + "%");
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <p class="zoomBtnZone">
+      <button class="zoomOutBtn">-</button>
+      <button class="originBtn">100%</button>
+      <button class="zoomInBtn">+</button>
+    </p>
+    <p class="fontSize">14px</p>
+    <div id="wrap">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas feugiat
+      consectetur nibh, ut luctus urna placerat non. Phasellus consectetur nunc
+      nec mi feugiat egestas. Pellentesque et consectetur mauris, sed rutrum
+      est. Etiam odio nunc, ornare quis urna sed, fermentum fermentum augue. Nam
+      imperdiet vestibulum ipsum quis feugiat. Nunc non pellentesque diam, nec
+      tempor nibh. Ut consequat sem sit amet ullamcorper sodales.
+    </div>
+  </body>
+</html>
