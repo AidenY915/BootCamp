@@ -25,7 +25,6 @@ static final String DB_PASSWOARD = "0000";
 static final String TABLE = "boards";
 
 static private boolean checkPassword(Connection conn, int id, String password) throws SQLException{
-	if(password == "") return false;
 	Statement stmt = conn.createStatement();
 	String correctPassword = null;
 	ResultSet rs = stmt.executeQuery("select password from " + TABLE + " where id = "+id);
@@ -39,14 +38,21 @@ static private boolean checkPassword(Connection conn, int id, String password) t
 	return false;
 }
 
-static private String modify(Connection conn, int id) throws SQLException{
+static private String modify(Connection conn, int id, String password) throws SQLException{
 	Statement stmt = conn.createStatement();
-	ResultSet rs = stmt.executeQuery("select title, content from" + TABLE + " where id = "+id);
+	ResultSet rs = stmt.executeQuery("select title, content from " + TABLE + " where id = "+id);
 	if(rs.next()){
 		StringBuilder pageStr = new StringBuilder(100);
-		pageStr.append("<form>");
-		pageStr.append("<textarea>"+rs.getString("title")+"</textarea>");
-		pageStr.append("<textarea>"+rs.getString("content")+"</textarea>");
+		pageStr.append("<form method = 'post' action = 'modifyBoard.jsp'>");
+		pageStr.append("<div>");
+		pageStr.append("<span>제목</span><input type = 'text' name = 'title' value ='"+ rs.getString("title") + "' >");
+		pageStr.append("</div>");
+		pageStr.append("<div>");
+		pageStr.append("<div>내용</div><textarea name = 'content'>"+rs.getString("content")+"</textarea>");
+		pageStr.append("</div>");
+		pageStr.append("<input type = 'hidden' name = 'id' value = '" + id + "'>");
+		pageStr.append("<input type = 'hidden' name = 'password' value = '" + password + "'>");
+		pageStr.append("<button>제출</button>");		
 		pageStr.append("</form>");
 		
 		return pageStr.toString();
@@ -72,7 +78,7 @@ static private void delete(Connection conn, int id)throws SQLException{
 		if(checkPassword(conn, id, password)){
 			switch (method) {
 			case "modify":
-					String updatePageStr = modify(conn, id);
+					String updatePageStr = modify(conn, id, password);
 					out.print(updatePageStr);
 					break;
 				
