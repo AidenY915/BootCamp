@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <style>
+      form {
+        display: inline-block;
+        border: 1px solid #ccc;
+        width:auto;
+      }
+    </style>
+  </head>
+  <body>
+    <form method = "post" action = "http://localhost:8080/JSP_day80/CRUD/newboard.jsp">
+      <div><span>제목</span><input type="text" name="title" /></div>
+        <div>
+          <p>글 내용</p>
+          <textarea name="content" cols="30" rows="10"></textarea>
+        </div>
+        <div><span>비밀번호</span><input type="password" name="password" /></div>
+      </div>
+      <button>제출</button>
+    </form>
+  </body>
+</html>
