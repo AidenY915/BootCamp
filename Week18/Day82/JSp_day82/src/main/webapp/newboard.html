@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Insert title here</title>
+	<style>
+		form {
+			border: 1px solid #555;
+			width: 400px;
+		}
+
+		form>* {
+			border: 1px solid #555;
+		}
+
+		textarea {
+			min-height: 300px;
+			width: 350px;
+		}
+	</style>
+</head>
+
+<body>
+	<form method="post" action="http://localhost:8080/JSP_day82/createBoard.jsp" broder="1">
+		<div broder="1">
+			<span>작성자: </span><input type="text" name="writer" />
+		</div>
+		<div broder="1">
+			<span>email: </span><input type="email" name="eamil" />
+		</div>
+		<div broder="1">
+			<span>제목: </span><input type="text" name="title" />
+		</div>
+		<div broder="1">
+			<div>내용:</div>
+			<textarea name="content" cols="20" rows="30"></textarea>
+		</div>
+		<div broder="1">
+			<span>비밀번호: </span><input type="password" name="password" />
+		</div>
+		<button>등록</button>
+	</form>
+</body>
+
+</html>
