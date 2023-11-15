@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name = 'form'>
+	<div>수<input type = 'number' min = 1 max = 10 oninvalid = 'alert("1과 10사이 입력");' required></div>
+	<div>수<input type = 'text' name = 'num' required></div>
+	<div>비밀번호<input type = 'password' name = 'pw' required></div>
+	<div>비밀번호 확인<input type = 'password' name = 'pwCheck' required></div>
+	<input type="submit"">
+	</form>
+	<script>
+		
+		document.form.num.addEventListener("change", function() {
+			const value = Number(this.value);
+			if(value < 1 || value > 10 || Number.isNaN(value)){
+				alert("1과 10사이 입력")
+				this.focus();
+			}
+		});
+		
+		document.form.pwCheck.addEventListener("change" , function() {
+			const pw = document.form.pw.value;
+			if(pw !== this.value){
+				alert("비밀번호 확인 다시!");
+			}
+		});
+		
+	</script>
+</body>
+</html>

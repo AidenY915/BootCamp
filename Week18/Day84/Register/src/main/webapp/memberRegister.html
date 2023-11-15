@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<form method = 'post' action = 'MemberRegisterOK' name = 'register'>
+		<legend>회원가입</legend>
+		<table>
+			<tr><td>이름</td><td><input type = 'text' name = 'name' required></td></tr>
+			<tr><td>아이디</td><td><input type = 'text' name = 'id' required></td></tr>
+			<tr><td>비밀번호</td><td><input type = 'password' name = 'pw' required></td></tr>
+			<tr><td>비밀번호 확인</td><td><input type = 'password' name = 'pwCheck' required></td></tr>
+			<tr><td>성별</td><td><input type = 'radio' name = 'sex' value = '1' required>남 <input type = 'radio' name = 'sex' value = '2'>여</td></tr>
+			<tr><td>이메일</td><td><input type = 'email' name = 'email' ></td></tr>
+			<tr><td>취미</td><td><input type = 'checkbox' name = 'hobby' value = 'swim'>수영<input type = 'checkbox' name = 'hobby' value = 'baseball'>야구<input type = 'checkbox' name = 'hobby' value = 'swim'>영화감상<input type = 'checkbox' name = 'hobby' value = 'music'>음악감상</td></tr>
+			<tr><td>핸드폰</td><td><select name = 'phone' required>
+				<option value = '010'>010</option>
+				<option value = '011'>011</option>
+				<option value = '016'>016</option>
+			</select><input type = 'text' name = 'phone' required></td></tr>
+		</table>
+		<button>회원가입</button><button type = 'reset'>초기화</button>
+	</form>
+	<script>
+		document.register.addEventListener('submit', function(event) {
+			if(document.register.pwCheck.value !== document.register.pw.value){
+				event.preventDefault();
+				alert('입력한 비밀번호가 서로 다릅니다.')
+			}
+		})
+	</script>
+</body>
+</html>
