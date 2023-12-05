@@ -139,6 +139,19 @@ public class BoardDao implements DbSetting {
 			e.printStackTrace();
 		}
 	}
+	
+	public void updateBoard(BoardDto dto) {
+		String updateBoardQuery = "UPDATE " + BOARD_TABLE + " SET title = ?, content = ? WHERE no = ?";
+		try(Connection conn = ds.getConnection()){
+			PreparedStatement updateBoardStmt = conn.prepareStatement(updateBoardQuery);
+			updateBoardStmt.setString(1, dto.getTitle());
+			updateBoardStmt.setString(2, dto.getContent());
+			updateBoardStmt.setInt(3, dto.getNo());
+			updateBoardStmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void deleteBoard(int no) {
 		String deleteBoardQuery = "DELETE FROM " + BOARD_TABLE + " WHERE no = ?";
