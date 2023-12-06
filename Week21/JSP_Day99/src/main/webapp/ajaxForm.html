@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	AJAX
+<script>
+	const req = new XMLHttpRequest();
+	req.open("GET", "AjaxOK");
+	req.send();
+	req.addEventListener("readystatechange", function() {
+		console.log(this.readyState);
+		if(this.readyState != 4) return;
+		const rslt = JSON.parse(req.response);
+		rslt.forEach((e)=>{
+			const div = document.createElement("div");
+			let html = "";
+			Object.keys(e).forEach(key=>{
+				html+=`<span>${key}</span> : <span>${e[key]}</span>`;
+			})
+			div.innerHTML=html;
+			document.querySelector("body").appendChild(div);
+		})
+		console.log(rslt);
+	})
+</script>
+</body>
+</html>
