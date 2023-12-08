@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<script>
+		$.ajax({
+			url : "data.json",
+			method: "GET",
+			dataType: "json",
+			success : function(data) {
+				for(let i of data){
+					let key = Object.keys(i);
+					$('body').append($(`<div>${i[key[0]]}${i[key[1]]}</div>`))
+				}
+			},
+			error: function(xhr, status, error){
+				console.error(status + " " + error);
+			}
+		})
+	</script>
+</body>
+</html>
